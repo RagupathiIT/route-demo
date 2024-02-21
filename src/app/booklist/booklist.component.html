@@ -1,0 +1,26 @@
+<div class="container">
+    <form [formGroup]="searchForm">
+        <input type="text" formControlName="searchText" (keyup)="onSearchTextChange($event)">
+    </form>
+</div>
+
+<table class="table table-dark">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Author</th>
+            <th>Price</th>
+            <th>View</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let book of allBooks">
+            <td>{{book.id}}</td>
+            <td>{{book.name}}</td>
+            <td>{{book.author}}</td>
+            <td>{{book.price}}</td>
+            <td><button (click)="openBootstrapModal(book)" class="btn btn-primary">View</button></td>
+        </tr>
+    </tbody>
+</table>
